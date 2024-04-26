@@ -1,5 +1,5 @@
-# TriggerSetup
-TriggerSetup is component for easy event system setup and re-useable
+# TriggerEvent
+TriggerEvent is component for easy event system setup and re-useable
 # Source Code
 ```csharp 
 using System.Collections;

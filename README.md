@@ -3,25 +3,21 @@ TriggerEvent is component for easy event system setup and re-useable
 # Source Code
 ##3d===============================
 ```csharp 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-​
-public class TriggerSetup : MonoBehaviour
+
+public class TriggerHandler : MonoBehaviour
 {
     [Tooltip("One time use")]
-    [SerializeField] bool oneTimeUse;
+    [SerializeField] private bool oneTimeUse;
+
     [Tooltip("Search only Tags")]
-    [SerializeField] string tagFilter;
-    [SerializeField] UnityEvent onTriggerEnter;
-​
-    [SerializeField] UnityEvent onTriggerStay;
-​
-    [SerializeField] UnityEvent onTriggerExit;
-​
-​
-​
+    [SerializeField] private string tagFilter;
+
+    [SerializeField] private UnityEvent onTriggerEnter;
+    [SerializeField] private UnityEvent onTriggerStay;
+    [SerializeField] private UnityEvent onTriggerExit;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!string.IsNullOrEmpty(tagFilter) && !other.gameObject.CompareTag(tagFilter)) return;
@@ -31,7 +27,7 @@ public class TriggerSetup : MonoBehaviour
             Destroy(this);
         }
     }
-​
+
     private void OnTriggerStay(Collider other)
     {
         if (!string.IsNullOrEmpty(tagFilter) && !other.gameObject.CompareTag(tagFilter)) return;
@@ -41,7 +37,7 @@ public class TriggerSetup : MonoBehaviour
             Destroy(this);
         }
     }
-​
+
     private void OnTriggerExit(Collider other)
     {
         if (!string.IsNullOrEmpty(tagFilter) && !other.gameObject.CompareTag(tagFilter)) return;
@@ -52,6 +48,7 @@ public class TriggerSetup : MonoBehaviour
         }
     }
 }
+
 ```
 ##2d===============================
 ```csharp
